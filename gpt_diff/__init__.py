@@ -1,0 +1,1 @@
+# gpt-diff version {version}

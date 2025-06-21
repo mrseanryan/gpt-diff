@@ -1,0 +1,55 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "gpt_diff"
+version = "0.0.1"
+description = "Summarize differences between files or a git diff via an LLM."
+readme = "README.md"
+authors = [{ name = "Sean Ryan", email = "mr.sean.ryan@gmail.com" }]
+license = "MIT"
+license-files = ["LICENSE"]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["python", "files", "lists", "utils", "dates", "processes"]
+requires-python = ">=3.12"
+
+[tool.poetry]
+name = "gpt_diff"
+version = "0.0.1"
+description = "Summarize differences between files or a git diff via an LLM."
+readme = "README.md"
+authors = ["Sean Ryan <mr.sean.ryan@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+cornsnake = "^0.0.90"
+
+[project.urls]
+Homepage = "https://github.com/mrseanryan/gpt-diff"
+Documentation = "https://github.com/mrseanryan/gpt-diff"
+Issues = "https://github.com/mrseanryan/gpt-diff/issues"
+Source = "https://github.com/mrseanryan/gpt-diff"
+
+[tool.ruff.format]
+exclude = []
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+
+[tool.mypy]
+ignore_missing_imports = true
+disallow_untyped_defs = true
+disallow_any_unimported = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
