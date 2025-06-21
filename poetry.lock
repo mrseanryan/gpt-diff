@@ -114,13 +114,13 @@ files = [
 
 [[package]]
 name = "cornsnake"
-version = "0.0.90"
+version = "0.0.91"
 description = "Wrap common Python utilities for working with files, git, ZIP, lists, processes, dates and times."
 optional = false
 python-versions = ">=3.11"
 files = [
-    {file = "cornsnake-0.0.90-py3-none-any.whl", hash = "sha256:1e8f339cad719ea1ff102e24d4599c8408392a0f973f9cc50818a1b1d6cd6ace"},
-    {file = "cornsnake-0.0.90.tar.gz", hash = "sha256:f608f19e0ae226fcc291a61bf3dfff6163408a9907fe40ca91cba50ceaaab71e"},
+    {file = "cornsnake-0.0.91-py3-none-any.whl", hash = "sha256:38598563219f86d399761ca574ea0c044e234d255b6c0bc529ebafe43bb6a7cb"},
+    {file = "cornsnake-0.0.91.tar.gz", hash = "sha256:f81e0b3dd9fe9d5e199068246dcb304384f4ae00a587eee1e2ff4f4453a5607f"},
 ]
 
 [package.dependencies]
@@ -201,4 +201,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "67910b8aec8e9c94c6be36245108fb3bed52a29ec5b5c6defa46f0a3f0321dc9"
+content-hash = "30f5c9d149f426cbea9bfe76abaf262a2a8d01469a0d0d7518a544c8400d7db9"

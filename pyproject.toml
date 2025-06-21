@@ -31,7 +31,7 @@ authors = ["Sean Ryan <mr.sean.ryan@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.12"
-cornsnake = "^0.0.90"
+cornsnake = "^0.0.91"
 requests = "^2.32.4"
 
 [project.urls]

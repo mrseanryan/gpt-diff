@@ -1,10 +1,15 @@
-from cornsnake import util_print, util_file
+from cornsnake import util_pdf, util_print, util_file
 from pathlib import Path
 
 from gpt_diff import config, llm_caller
 
-def _read_input_file(path_to_file: Path) -> str:
+def _read_pdf_input_file(path_to_file: Path, start_page: int, end_page: int) -> str:
+    return util_pdf.extract_text_from_pdf(filepath=str(path_to_file), start_page=start_page, end_page=end_page)
+
+def _read_input_file(path_to_file: Path, start_page: int=-1, end_page: int=-1) -> str:
     util_print.print_custom(f"Reading file {path_to_file}")
+    if util_pdf.is_pdf(filepath=str(path_to_file)):
+        return _read_pdf_input_file(path_to_file=path_to_file, start_page=start_page, end_page=end_page)
     return util_file.read_text_from_file(str(path_to_file))
 
 
@@ -35,10 +40,12 @@ def run_with_a_before_and_after_file(
     target_language: str,
     config: config.Config,
     output_file: Path,
+    start_page: int,
+    end_page: int,
 ) -> None:
     util_print.print_section("Reading Before/After Files")
-    before_file_content = _read_input_file(path_to_file=path_to_before_file)
-    after_file_content = _read_input_file(path_to_file=path_to_after_file)
+    before_file_content = _read_input_file(path_to_file=path_to_before_file, start_page=start_page, end_page=end_page)
+    after_file_content = _read_input_file(path_to_file=path_to_after_file, start_page=start_page, end_page=end_page)
 
     util_print.print_section("Calling Local LLM")
     result_str = llm_caller.call_llm(
