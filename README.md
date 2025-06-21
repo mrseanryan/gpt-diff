@@ -1,5 +1,17 @@
 # gpt-diff
+
 Summarize differences between files or a git diff via an LLM.
+
+Automates the chore of comparing files and writing up a summary.
+
+## Features
+
+- compare 2 files, generate a natural language summary (markdown) of their differences
+  - alternatively, process a single 'diff' file such as the output of `git diff`
+- output in a different langauge
+- uses a local LLM (via Ollama) for maximum privacy
+
+The features and quality depend on the LLM model used (tested with Qwen3-8B).
 
 ## Setup
 
@@ -49,6 +61,33 @@ Output:
 4. **Updated File Paths:**
    - Some warnings now reference new files (e.g., `src/Validation/Comparer.cs`, `src/Docs/ApiGenerator.cs`, `src/Models/Response.cs`), while others retain their original paths (e.g., `src/Services/EmailService.cs`, `src/ViewModels/AccountViewModel.cs`).
 
-**Key Changes:**  
+**Key Changes:**
 The `AFTER` file removes three warnings (CS0168, CS0219, CS0162) and adds three new ones (CS0252, CS1573, CS8619). The descriptions for existing warnings are unchanged, but the file paths for some warnings have shifted, indicating updated or newly introduced code issues.
+```
+
+Output (Spanish):
+
+```
+**Diferencias entre el archivo antes y después:**
+
+1. **Warnings eliminados (no presentes en el "AFTER"):**
+   - **CS0168**: "Variable declarada pero nunca usada" (ejemplo: `src/Models/User.cs`).
+   - **CS0219**: "Variable asignada pero nunca usada" (ejemplo: `src/Controllers/HomeController.cs`).
+   - **CS0162**: "Código inalcanzable detectado" (ejemplo: `src/Utils/StringUtils.cs`).
+
+2. **Warnings agregados (nuevos en el "AFTER"):**
+   - **CS0252**: "Comparación de referencia posible por error; usar `.Equals()` en su lugar" (ejemplo: `src/Validation/Comparer.cs`).
+   - **CS1573**: "Parámetro no tiene etiqueta `<param>` en comentario XML" (ejemplo: `src/Docs/ApiGenerator.cs`).
+   - **CS8619**: "Nullabilidad de tipos de referencia en valor no coincide con el tipo objetivo" (ejemplo: `src/Models/Response.cs`).
+
+3. **Cambios en descripciones o rutas de archivos:**
+   - **CS8618**: La ruta de archivo cambió de `src/DTOs/UserDto.cs` a `src/DTOs/UserDto.cs` (no hay cambio).
+   - **CS8321**: La descripción y ruta de archivo permanecen igual en ambos archivos.
+   - **CS0108 y CS0114**: Descripción y ruta de archivo son idénticas en ambos archivos.
+
+4. **Orden de las filas:**
+   - El orden de los warnings en el "AFTER" no sigue la misma secuencia que en el "BEFORE", pero esto no afecta las diferencias mencionadas anteriormente.
+
+**Resumen:**
+El "AFTER" elimina tres warnings anteriores (CS0168, CS0219, CS0162) y agrega tres nuevos (CS0252, CS1573, CS8619). Las descripciones y rutas de archivo de los warnings restantes son idénticas en ambos archivos.
 ```
