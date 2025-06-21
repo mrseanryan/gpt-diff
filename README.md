@@ -34,12 +34,13 @@ See the built-in help:
 ./go.sh
 ```
 
-## Example Run
+## Example Usage
 
 ### Compare a before and after file of C# warnings
 
 ```bash
-./test.e2e.sh
+echo "Comparing 2 files"
+./go.sh ./test_data/csharp-warnings.before.txt   ./test_data/csharp-warnings.after.txt -o temp/csharp-warnings.txt
 ```
 
 Output:
@@ -67,6 +68,13 @@ Output:
 The `AFTER` file removes three warnings (CS0168, CS0219, CS0162) and adds three new ones (CS0252, CS1573, CS8619). The descriptions for existing warnings are unchanged, but the file paths for some warnings have shifted, indicating updated or newly introduced code issues.
 ```
 
+### Compare a before and after file of C# warnings (output in Spanish)
+
+```bash
+echo "Comparing 2 files"
+./go.sh ./test_data/csharp-warnings.before.txt   ./test_data/csharp-warnings.after.txt -o temp/csharp-warnings.txt -l Spanish
+```
+
 Output (Spanish):
 
 ```
@@ -92,4 +100,20 @@ Output (Spanish):
 
 **Resumen:**
 El "AFTER" elimina tres warnings anteriores (CS0168, CS0219, CS0162) y agrega tres nuevos (CS0252, CS1573, CS8619). Las descripciones y rutas de archivo de los warnings restantes son idénticas en ambos archivos.
+```
+
+### More Examples
+
+```bash
+echo "Summarizing just 1 git-diff file"
+./go.sh ./test_data/csharp-warnings.git-diff.txt -o temp/csharp-warnings.git-diff.txt
+
+echo "Comparing 2 PDF files"
+./go.sh  ./temp/overall-report--mcop_1194-system-prompt-tools--run_3_all_after_sean.pdf   ./temp/baseline--overall-report--mcop_1194-system-prompt-tools--run_4_sean_new_baseline.pdf   -o temp/overall-then-baseline.txt  --start-page 1 --end-page 2
+```
+
+# Testing
+
+```bash
+./test.e2e.sh
 ```

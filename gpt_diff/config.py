@@ -9,7 +9,7 @@ class Config:
         default="think"
     )  # Does the model output '<think>' tag - anything there will be filtered out. Set to empty to disable the filtering.
 
-    # API endpoint
+    # Ollama API endpoint
     ollama_url: str = field(default="http://localhost:11434/api/chat")
 
     is_verbose: bool = field(default=False)
