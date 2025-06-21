@@ -34,6 +34,30 @@ See the built-in help:
 ./go.sh
 ```
 
+```
+Summarize differences between files or a git diff via an LLM.
+
+Usage: main_cli.py <before-file> [after-file] [options]
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -e END_PAGE, --end-page=END_PAGE
+                        (for PDF file) The End page (1-indexed) to extract
+                        text to.
+  -l TARGET_LANGUAGE, --language=TARGET_LANGUAGE
+                        translate to the target output language
+                        TARGET_LANGUAGE. Example: English.
+  -o OUTPUT_FILE, --output=OUTPUT_FILE
+                        the output file (required). By default is None, so
+                        output is to stdout (no file is output).
+  -s START_PAGE, --start-page=START_PAGE
+                        (for PDF files) The Start page (1-indexed) to extract
+                        text from.
+  -v, --verbose         turn on verbose mode
+Usage: main_cli.py <before-file> [after-file] [options]
+```
+
 ## Example Usage
 
 ### Compare a before and after file of C# warnings
