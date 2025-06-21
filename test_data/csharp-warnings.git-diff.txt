@@ -1,0 +1,20 @@
+diff --git a/test_data/csharp-warnings.after.txt b/test_data/csharp-warnings.after.txt
+index 95d8a55..cdd6d47 100644
+--- a/test_data/csharp-warnings.after.txt
++++ b/test_data/csharp-warnings.after.txt
+@@ -1,12 +1,12 @@
+ | Warning Code | Description                                                        | Example File Path                       |
+ |--------------|--------------------------------------------------------------------|-----------------------------------------|
++| CS0168       | Variable declared but never used                                   | `src/Models/User.cs`                    |
++| CS0219       | Variable assigned but never used                                   | `src/Controllers/HomeController.cs`     |
+ | CS0618       | Member is obsolete                                                 | `src/Services/EmailService.cs`          |
+ | CS0649       | Field is never assigned to, and will always have default value     | `src/ViewModels/AccountViewModel.cs`    |
+ | CS0108       | Member hides inherited member; use `new` keyword if hiding intended| `src/Helpers/Logger.cs`                 |
+ | CS0114       | Member hides inherited member; missing override modifier           | `src/Core/BaseProcessor.cs`             |
+ | CS1998       | Async method lacks `await`; will run synchronously                 | `src/Jobs/NotificationJob.cs`           |
++| CS0162       | Unreachable code detected                                          | `src/Utils/StringUtils.cs`              |
+ | CS8618       | Non-nullable property must contain a non-null value (nullable ref) | `src/DTOs/UserDto.cs`                   |
+ | CS8321       | Local function is declared but never used                          | `src/Extensions/HttpExtensions.cs`      |
+-| CS0252       | Possible unintended reference comparison; use `.Equals` instead    | `src/Validation/Comparer.cs`            |
+-| CS1573       | Parameter has no matching `<param>` tag in XML comment             | `src/Docs/ApiGenerator.cs`              |
+-| CS8619       | Nullability of reference types in value doesn't match target type  | `src/Models/Response.cs`                |

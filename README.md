@@ -25,7 +25,7 @@ See the built-in help:
 ### Compare a before and after file of C# warnings
 
 ```bash
-./test.sh
+./test.e2e.sh
 ```
 
 Output:

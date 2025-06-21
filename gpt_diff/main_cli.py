@@ -35,9 +35,9 @@ parser.add_option(
 parser.add_option(
     "-o",
     "--output",
-    dest="output_dir",
+    dest="output_file",
     default=None,
-    help="the output directory. By default is None, so output is to stdout (no files are output).",
+    help="the output file. By default is None, so output is to stdout (no file is output).",
 )
 parser.add_option(
     "-v",
@@ -52,9 +52,10 @@ def process_args() -> None:
     (options, args) = parser.parse_args()
 
     target_language = options.target_language
+    output_file = options.output_file
 
     config = read_config()
-    
+
     config.is_verbose = options.is_verbose
 
     try:
@@ -65,6 +66,7 @@ def process_args() -> None:
                     diff_file=Path(path_to_before_file),
                     target_language=target_language,
                     config=config,
+                    output_file=Path(output_file),
                 )
             case 2:
                 path_to_before_file = args[0]
@@ -74,6 +76,7 @@ def process_args() -> None:
                     path_to_after_file=Path(path_to_after_file),
                     target_language=target_language,
                     config=config,
+                    output_file=Path(output_file),
                 )
             case _:
                 usage(parser)
