@@ -7,6 +7,8 @@ Automates the chore of comparing files and writing up a summary.
 ## Features
 
 - compare 2 files, generate a natural language summary (markdown) of their differences
+  - any text file
+  - PDF files: can specify a page range
   - alternatively, process a single 'diff' file such as the output of `git diff`
 - output in a different langauge
 - uses a local LLM (via Ollama) for maximum privacy
