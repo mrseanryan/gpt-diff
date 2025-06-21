@@ -10,6 +10,7 @@ from cornsnake import util_print
 from optparse import OptionParser
 
 from gpt_diff import process
+from gpt_diff.config import read_config
 
 
 # usage() - prints out the usage text, from the top of this file :-) and the options
@@ -51,7 +52,10 @@ def process_args() -> None:
     (options, args) = parser.parse_args()
 
     target_language = options.target_language
-    is_verbose = options.is_verbose
+
+    config = read_config()
+    
+    config.is_verbose = options.is_verbose
 
     try:
         match len(args):
@@ -60,7 +64,7 @@ def process_args() -> None:
                 process.run_with_a_diff_file(
                     diff_file=Path(path_to_before_file),
                     target_language=target_language,
-                    is_verbose=is_verbose,
+                    config=config,
                 )
             case 2:
                 path_to_before_file = args[0]
@@ -69,7 +73,7 @@ def process_args() -> None:
                     path_to_before_file=Path(path_to_before_file),
                     path_to_after_file=Path(path_to_after_file),
                     target_language=target_language,
-                    is_verbose=is_verbose,
+                    config=config,
                 )
             case _:
                 usage(parser)
