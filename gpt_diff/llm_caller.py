@@ -18,7 +18,11 @@ def _filter_out_thinking(result_str: str, config: config.Config) -> str:
 
 
 def call_llm(
-    before_file: str, after_file: str, config: config.Config, target_language: str
+    before_file: str,
+    after_file: str,
+    config: config.Config,
+    target_language: str,
+    extra_user_prompt: str,
 ) -> str:
     # Request payload with streaming enabled
     payload = {
@@ -31,7 +35,9 @@ def call_llm(
             {
                 "role": "user",
                 "content": prompts.build_user_message(
-                    before_file=before_file, after_file=after_file
+                    before_file=before_file,
+                    after_file=after_file,
+                    extra_user_prompt=extra_user_prompt,
                 ),
             },
         ],

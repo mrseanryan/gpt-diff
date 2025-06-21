@@ -7,5 +7,10 @@ def build_system_prompt(target_language: str) -> str:
     return prompt
 
 
-def build_user_message(before_file: str, after_file: str) -> str:
-    return f"Describe the before and after differences between these 2 files.\n\nBEFORE:\n{before_file}\n\nAFTER:\n{after_file}\n"
+def build_user_message(
+    before_file: str, after_file: str, extra_user_prompt: str
+) -> str:
+    prompt = f"Describe the before and after differences between these 2 files.\n\nBEFORE:\n{before_file}\n\nAFTER:\n{after_file}\n"
+    if extra_user_prompt:
+        prompt += f"\n{extra_user_prompt}\n"
+    return prompt

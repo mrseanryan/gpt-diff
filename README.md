@@ -35,7 +35,7 @@ See the built-in help:
 ```
 
 ```
-Summarize differences between files or a git diff via an LLM.
+Summarize differences between files or within a git diff, via an LLM.
 
 Usage: main_cli.py <before-file> [after-file] [options]
 
@@ -54,6 +54,9 @@ Options:
   -s START_PAGE, --start-page=START_PAGE
                         (for PDF files) The Start page (1-indexed) to extract
                         text from.
+  -u USER_PROMPT, --user-prompt=USER_PROMPT
+                        additional details to help the LLM perform the diff
+                        comparision.
   -v, --verbose         turn on verbose mode
 Usage: main_cli.py <before-file> [after-file] [options]
 ```

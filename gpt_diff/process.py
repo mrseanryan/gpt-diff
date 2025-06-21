@@ -37,6 +37,7 @@ def _summarize_differences(
     config: config.Config,
     target_language: str,
     output_file: Path,
+    extra_user_prompt: str,
 ) -> None:
     start = util_time.start_timer()
     util_print.print_section("Calling Local LLM")
@@ -45,6 +46,7 @@ def _summarize_differences(
         after_file=after_file_content,
         config=config,
         target_language=target_language,
+        extra_user_prompt=extra_user_prompt,
     )
     _write_output_to_file(result_str=result_str, output_file=output_file)
 
@@ -55,7 +57,11 @@ def _summarize_differences(
 
 
 def run_with_a_diff_file(
-    diff_file: Path, target_language: str, config: config.Config, output_file: Path
+    diff_file: Path,
+    target_language: str,
+    config: config.Config,
+    output_file: Path,
+    extra_user_prompt: str,
 ) -> None:
     util_print.print_section("Reading Single 'diff' file")
     diff_file_content = _read_input_file(path_to_file=diff_file)
@@ -66,6 +72,7 @@ def run_with_a_diff_file(
         config=config,
         target_language=target_language,
         output_file=output_file,
+        extra_user_prompt=extra_user_prompt,
     )
 
 
@@ -77,6 +84,7 @@ def run_with_a_before_and_after_file(
     output_file: Path,
     start_page: int,
     end_page: int,
+    extra_user_prompt: str,
 ) -> None:
     util_print.print_section("Reading Before/After Files")
 
@@ -93,4 +101,5 @@ def run_with_a_before_and_after_file(
         config=config,
         target_language=target_language,
         output_file=output_file,
+        extra_user_prompt=extra_user_prompt,
     )

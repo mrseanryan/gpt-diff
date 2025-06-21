@@ -44,7 +44,7 @@ parser.add_option(
     "--output",
     dest="output_file",
     default=None,
-    help="the output file (required). By default is None, so output is to stdout (no file is output).",
+    help="the output file path (required).",
 )
 parser.add_option(
     "-s",
@@ -53,6 +53,13 @@ parser.add_option(
     type="int",
     default=-1,
     help="(for PDF files) The Start page (1-indexed) to extract text from.",
+)
+parser.add_option(
+    "-u",
+    "--user-prompt",
+    dest="user_prompt",
+    default="",
+    help="additional details to help the LLM perform the diff comparision.",
 )
 parser.add_option(
     "-v",
@@ -109,6 +116,7 @@ def process_args() -> None:
                     target_language=options.target_language,
                     config=config,
                     output_file=Path(options.output_file),
+                    extra_user_prompt=options.user_prompt,
                 )
             case 2:
                 path_to_before_file = args[0]
@@ -131,6 +139,7 @@ def process_args() -> None:
                     output_file=Path(options.output_file),
                     start_page=options.start_page,
                     end_page=options.end_page,
+                    extra_user_prompt=options.user_prompt,
                 )
             case _:
                 usage(parser)
