@@ -25,7 +25,7 @@ requires-python = ">=3.12"
 [tool.poetry]
 name = "gpt_diff"
 version = "0.0.1"
-description = "Summarize differences between files or a git diff via an LLM."
+description = "Summarize differences between files or within a git diff, via a local LLM."
 readme = "README.md"
 authors = ["Sean Ryan <mr.sean.ryan@gmail.com>"]
 

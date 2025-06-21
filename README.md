@@ -1,8 +1,9 @@
 # gpt-diff
 
-Summarize differences between files or a git diff via an LLM.
+Summarize differences between files or within a git diff, via an LLM.
 
-Automates the chore of comparing files and writing up a summary.
+- Automates the chore of comparing files and writing up a summary.
+- Uses a local LLM for maximum privacy.
 
 ## Features
 
