@@ -48,6 +48,13 @@ def _summarize_differences(
         target_language=target_language,
         extra_user_prompt=extra_user_prompt,
     )
+
+    if Path.exists(output_file):
+        util_print.print_warning(
+            f"The summary file {output_file} already exists - writing to unique path."
+        )
+        output_file = Path(util_file.get_unique_filepath(path_to_file=str(output_file)))
+
     _write_output_to_file(result_str=result_str, output_file=output_file)
 
     elapsed_seconds = util_time.end_timer(start)
